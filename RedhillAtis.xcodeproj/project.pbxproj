@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7B192F2F2D9DCCED00AA96B1 /* RedhillAtisWatch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 7B192F0C2D9DCCEC00AA96B1 /* RedhillAtisWatch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		7B55D9632D9DD6980024B2AB /* DateHelper in Frameworks */ = {isa = PBXBuildFile; productRef = 7B55D9622D9DD6980024B2AB /* DateHelper */; };
+		7B55D9702D9DD8020024B2AB /* DateHelper in Frameworks */ = {isa = PBXBuildFile; productRef = 7B55D96F2D9DD8020024B2AB /* DateHelper */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,9 +73,25 @@
 		7B192F252D9DCCED00AA96B1 /* RedhillAtisWatch Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RedhillAtisWatch Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		7B55D9652D9DD7060024B2AB /* Exceptions for "RedhillAtis" folder in "RedhillAtisWatch Watch App" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Media.xcassets,
+				Models/AtisModel.swift,
+				RedhillAtisApp.swift,
+				ViewModels/AtisViewModel.swift,
+			);
+			target = 7B192F0B2D9DCCEC00AA96B1 /* RedhillAtisWatch Watch App */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		7B192EDD2D9DCC9E00AA96B1 /* RedhillAtis */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				7B55D9652D9DD7060024B2AB /* Exceptions for "RedhillAtis" folder in "RedhillAtisWatch Watch App" target */,
+			);
 			path = RedhillAtis;
 			sourceTree = "<group>";
 		};
@@ -109,6 +127,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B55D9632D9DD6980024B2AB /* DateHelper in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,6 +149,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B55D9702D9DD8020024B2AB /* DateHelper in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,6 +179,7 @@
 				7B192F0D2D9DCCEC00AA96B1 /* RedhillAtisWatchApp */,
 				7B192F1E2D9DCCED00AA96B1 /* RedhillAtisWatchAppTests */,
 				7B192F282D9DCCED00AA96B1 /* RedhillAtisWatchAppUITests */,
+				7B55D9612D9DD6980024B2AB /* Frameworks */,
 				7B192EDC2D9DCC9E00AA96B1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -174,6 +195,13 @@
 				7B192F252D9DCCED00AA96B1 /* RedhillAtisWatch Watch AppUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		7B55D9612D9DD6980024B2AB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,6 +226,7 @@
 			);
 			name = RedhillAtis;
 			packageProductDependencies = (
+				7B55D9622D9DD6980024B2AB /* DateHelper */,
 			);
 			productName = RedhillAtis;
 			productReference = 7B192EDB2D9DCC9E00AA96B1 /* RedhillAtis.app */;
@@ -266,6 +295,7 @@
 			);
 			name = "RedhillAtisWatch Watch App";
 			packageProductDependencies = (
+				7B55D96F2D9DD8020024B2AB /* DateHelper */,
 			);
 			productName = "RedhillAtisWatch Watch App";
 			productReference = 7B192F0C2D9DCCEC00AA96B1 /* RedhillAtisWatch Watch App.app */;
@@ -360,6 +390,9 @@
 			);
 			mainGroup = 7B192ED22D9DCC9E00AA96B1;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				7B55D95C2D9DD53D0024B2AB /* XCRemoteSwiftPackageReference "DateHelper" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 7B192EDC2D9DCC9E00AA96B1 /* Products */;
 			projectDirPath = "";
@@ -618,17 +651,21 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RedhillAtis/Preview Content\"";
 				DEVELOPMENT_TEAM = C2Y482MP9U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Redhill ATIS";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -647,17 +684,21 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RedhillAtis/Preview Content\"";
 				DEVELOPMENT_TEAM = C2Y482MP9U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Redhill ATIS";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -746,8 +787,9 @@
 		7B192F312D9DCCED00AA96B1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = WatchIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RedhillAtisWatchApp/Preview Content\"";
@@ -769,15 +811,16 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 11.2;
+				WATCHOS_DEPLOYMENT_TARGET = 11.0;
 			};
 			name = Debug;
 		};
 		7B192F322D9DCCED00AA96B1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = WatchIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RedhillAtisWatchApp/Preview Content\"";
@@ -799,7 +842,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 11.2;
+				WATCHOS_DEPLOYMENT_TARGET = 11.0;
 			};
 			name = Release;
 		};
@@ -948,6 +991,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7B55D95C2D9DD53D0024B2AB /* XCRemoteSwiftPackageReference "DateHelper" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/melvitax/DateHelper.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7B55D9622D9DD6980024B2AB /* DateHelper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7B55D95C2D9DD53D0024B2AB /* XCRemoteSwiftPackageReference "DateHelper" */;
+			productName = DateHelper;
+		};
+		7B55D96F2D9DD8020024B2AB /* DateHelper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7B55D95C2D9DD53D0024B2AB /* XCRemoteSwiftPackageReference "DateHelper" */;
+			productName = DateHelper;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7B192ED32D9DCC9E00AA96B1 /* Project object */;
 }

@@ -8,10 +8,13 @@
 import SwiftUI
 
 @main
-struct RedhillAtisApp: App {
+struct RedhillWeatherApp: App {
+    @State private var atis = AtisViewModel()
+
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(atis)
         }
     }
 }
