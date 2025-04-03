@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import DateHelper
 
 struct WatchInfoBox: View {
     let label: String
@@ -33,6 +34,9 @@ struct ContentView: View {
                 .padding()
                 GridRow {
                     WatchInfoBox(label: "QNH", info: String(atis.current.qnh))
+                    let updatedOnTime = Date(fromString: atis.current.updatedOn, format: .isoDateTimeFull)?
+                        .toString(format: .custom("HH:mm")) ?? ""
+                    WatchInfoBox(label: "Time", info: updatedOnTime)
                 }
                 .padding(.horizontal)
             }
