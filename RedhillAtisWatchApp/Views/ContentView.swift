@@ -41,12 +41,12 @@ struct ContentView: View {
                 .padding(.horizontal)
             }
             .padding()
-            .task {
-                try? await atis.fetchRedhillAtis()
-            }
-            .refreshable {
-                try? await atis.fetchRedhillAtis()
-            }
+        }
+        .task {
+            try? await atis.fetchRedhillAtis()
+        }
+        .refreshable {
+            try? await atis.fetchRedhillAtis()
         }
     }
 
