@@ -18,6 +18,7 @@ default_platform(:ios)
 platform :ios do
   desc "Generate new localized screenshots"
   lane :screenshots do
-    capture_screenshots(scheme: "RedhillAtis")
+    capture_screenshots(scheme: "RedhillAtis", skip_open_summary: true)
+    capture_screenshots(scheme: "RedhillAtisWatch Watch App", skip_open_summary: true, devices: ["Apple Watch SE (40mm) (2nd generation)"], languages: ["en-US"])
   end
 end

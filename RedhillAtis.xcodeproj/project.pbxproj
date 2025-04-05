@@ -91,6 +91,13 @@
 			);
 			target = 7B192EDA2D9DCC9E00AA96B1 /* RedhillAtis */;
 		};
+		7BD9F9422DA16D91000797F9 /* Exceptions for "RedhillAtisUITests" folder in "RedhillAtisWatch Watch AppUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				SnapshotHelper.swift,
+			);
+			target = 7B192F242D9DCCED00AA96B1 /* RedhillAtisWatch Watch AppUITests */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -110,6 +117,9 @@
 		};
 		7B192EF82D9DCC9F00AA96B1 /* RedhillAtisUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				7BD9F9422DA16D91000797F9 /* Exceptions for "RedhillAtisUITests" folder in "RedhillAtisWatch Watch AppUITests" target */,
+			);
 			path = RedhillAtisUITests;
 			sourceTree = "<group>";
 		};
