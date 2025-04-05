@@ -23,34 +23,43 @@ struct WatchInfoBox: View {
 
 struct ContentView: View {
     @Environment(AtisViewModel.self) var atis
-
+    
     var body: some View {
-        ScrollView {
-            Grid {
-                GridRow {
-                    WatchInfoBox(label: "Info", info: atis.current.designator)
-                    WatchInfoBox(label: "Runway", info: atis.current.runway)
+        
+        NavigationStack {
+                        Grid {
+                            GridRow {
+                                WatchInfoBox(label: "Info", info: atis.current.designator)
+                                WatchInfoBox(label: "Runway", info: atis.current.runway)
+                            }
+                            .padding()
+                            GridRow {
+                                WatchInfoBox(label: "QNH", info: String(atis.current.qnh))
+                                let updatedOnTime = Date(
+                                    fromString: atis.current.updatedOn,
+                                    format: .isoDateTimeFull
+                                )?
+                                    .toString(format: .custom("HH:mm")) ?? ""
+                                WatchInfoBox(label: "Time", info: updatedOnTime)
+                            }
+                            .padding(.horizontal)
+                        }
+                .toolbar {
+                    ToolbarItem(placement: .topBarLeading) {
+                        Button {
+                            Task{try? await atis.fetchRedhillAtis()
+                            }
+                        } label: {
+                            Text("Update").padding(.horizontal)
+                        }
+                    }
                 }
-                .padding()
-                GridRow {
-                    WatchInfoBox(label: "QNH", info: String(atis.current.qnh))
-                    let updatedOnTime = Date(fromString: atis.current.updatedOn, format: .isoDateTimeFull)?
-                        .toString(format: .custom("HH:mm")) ?? ""
-                    WatchInfoBox(label: "Time", info: updatedOnTime)
-                }
-                .padding(.horizontal)
-            }
-            .padding()
         }
-        .task {
-            try? await atis.fetchRedhillAtis()
-        }
-        .refreshable {
-            try? await atis.fetchRedhillAtis()
-        }
+ 
     }
-
+        
 }
+
 
 #Preview {
     ContentView()
