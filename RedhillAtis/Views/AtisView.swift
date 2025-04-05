@@ -56,8 +56,9 @@ struct AtisView: View {
                     Text("QNH").font(.title)
                     Spacer()
                     Text(String(atis.current.qnh)).font(.system(size: 54, weight: .bold))
+                    }
+                .padding()
                 }
-                .padding()}
                 .compositingGroup()
                 .cornerRadius(10)
                 .padding(.horizontal)

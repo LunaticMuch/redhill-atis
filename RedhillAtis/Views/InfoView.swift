@@ -35,21 +35,21 @@ struct InfoView: View {
                 Spacer()
                 Divider()
                 HStack {
-                    Link(destination: instagramURL, label: {
+                    Link(destination: instagramURL) {
                         Image("instagram")
                             .foregroundColor(Color(UIColor.systemGray))
                             .padding()
-                    })
-                    Link(destination: linkedinURL, label: {
+                    }
+                    Link(destination: linkedinURL) {
                         Image("linkedin")
                             .foregroundColor(Color(UIColor.systemGray))
                             .padding()
-                    })
-                    Link(destination: githubURL, label: {
+                    }
+                    Link(destination: githubURL) {
                         Image("github")
                             .foregroundColor(Color(UIColor.systemGray))
                             .padding()
-                    })
+                    }
                 }
                 .padding(.bottom, 30)
             }.padding()

@@ -18,14 +18,14 @@ struct WatchInfoBox: View {
             Text(info).font(.largeTitle)
         }
     }
-        
+
 }
 
 struct ContentView: View {
     @Environment(AtisViewModel.self) var atis
-    
+
     var body: some View {
-        
+
         NavigationStack {
                         Grid {
                             GridRow {
@@ -47,7 +47,7 @@ struct ContentView: View {
                 .toolbar {
                     ToolbarItem(placement: .topBarLeading) {
                         Button {
-                            Task{try? await atis.fetchRedhillAtis()
+                            Task {try? await atis.fetchRedhillAtis()
                             }
                         } label: {
                             Text("Update").padding(.horizontal)
@@ -55,11 +55,10 @@ struct ContentView: View {
                     }
                 }
         }
- 
-    }
-        
-}
 
+    }
+
+}
 
 #Preview {
     ContentView()
