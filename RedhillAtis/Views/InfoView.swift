@@ -40,11 +40,6 @@ struct InfoView: View {
                             .foregroundColor(Color(UIColor.systemGray))
                             .padding()
                     }
-                    Link(destination: linkedinURL) {
-                        Image("linkedin")
-                            .foregroundColor(Color(UIColor.systemGray))
-                            .padding()
-                    }
                     Link(destination: githubURL) {
                         Image("github")
                             .foregroundColor(Color(UIColor.systemGray))
