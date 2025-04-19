@@ -15,26 +15,29 @@ struct RedhillAtis: Decodable {
     var updatedOn: String
     var qfe: String
     var qnh: String
-    //    var isAutomatic: Bool
-    //    var isCavok: Bool
-    //    var temperature: Int
-    //    var dewPoint: Int
-    //    var visibility: Int
-    //    var clouds: [CloudCoverage]
-    //    var isWindVariable: Bool
-    //    var windSpeed: Int
-    //    var windBetweenFrom: Int
-    //    var windDirection: Int
-    //    var windBetweenTo: Int
+    var isAutomatic: Bool
+    var isCavok: Bool
+    var temperature: String
+    var dewPoint: String
+    var visibility: String
+    // Wind
+    var isWindVariable: Bool
+    var windSpeed: String
+    var windDirection: String
+    var windBetweenFrom: String
+    var windBetweenTo: String
+    var windGust: String
+    var isWindGusting: Bool
+
     //    var windSpeedGust: Int
     //    var weather: String
-    //
-    //    struct CloudCoverage: Decodable {
-    //        var type: Int = 0
-    //        var height: Int = 0
-    //        var cover: Int = 0
-    //    }
+    var clouds: [CloudCoverage?]
     
+    struct CloudCoverage: Decodable {
+        var type: Int = 0
+        var height: Int = 0
+        var cover: Int = 0
+    }
 
     init() {
         self.site = ""
@@ -42,20 +45,58 @@ struct RedhillAtis: Decodable {
         self.designator = "-"
         self.runway = "00-"
         self.updatedOn = "2025-01-01T00:00:00.000+00:00"
-        //        self.isAutomatic = true
-        //        self.isCavok = true
         self.qfe = "0000"
         self.qnh = "0000"
-        //        self.temperature = 0
-        //        self.dewPoint = 0
-        //        self.visibility = 0
-        //        self.clouds = []
-        //        self.isWindVariable = false
-        //        self.windSpeed = 0
-        //        self.windDirection = 0
-        //        self.windBetweenFrom = 0
-        //        self.windBetweenTo = 0
-        //        self.windSpeedGust = 0
-        //        self.weather = ""
+        self.temperature = "00"
+        self.dewPoint = "00"
+        self.visibility = "9999"
+        self.isAutomatic = true
+        self.isCavok = false
+        self.isWindVariable = false
+        self.windSpeed = "000"
+        self.windDirection = "000"
+        self.windBetweenFrom = "000"
+        self.windBetweenTo = "000"
+        self.clouds = []
+        self.windGust = "000"
+        self.isWindGusting = false
+    }
+
+    // Computer properties
+    var windDescription: String {
+        return "\(windSpeed)kt from \(windDirection)"
+    }
+    var windVariabilityDescription: String {
+        if !isWindVariable {
+            return ""
+        }
+        return "\(windBetweenFrom) to \(windBetweenTo)"
+    }
+
+}
+
+extension RedhillAtis {
+    func toDictionary() -> [String: Any] {
+        return [
+            "site": site,
+            "metar": metar,
+            "designator": designator,
+            "runway": runway,
+            "updatedOn": updatedOn,
+            "qfe": qfe,
+            "qnh": qnh,
+            "isAutomatic": isAutomatic,
+            "isCavok": isCavok,
+            "temperature": temperature,
+            "dewPoint": dewPoint,
+            "visibility": visibility,
+            "isWindVariable": isWindVariable,
+            "windSpeed": windSpeed,
+            "windDirection": windDirection,
+            "windBetweenFrom": windBetweenFrom,
+            "windBetweenTo": windBetweenTo,
+            "windDescription": windDescription,
+            "windVariabilityDescription": windVariabilityDescription
+        ]
     }
 }

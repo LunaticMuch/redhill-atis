@@ -8,13 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var selection = 2
+    
     var body: some View {
-        TabView {
-            AtisView()
+        TabView(selection:$selection) {
+            InFlightView()
                 .tabItem {
-                    Label("ATIS", systemImage: "cloud.sun.rain.fill")
+                    Label("In Flight", systemImage: "airplane.circle.fill")
+                }.tag(1)
+            FullView()
+                .tabItem {
+                    Label("Weather", systemImage: "sun.rain.fill")
                 }
-
+                .tag(2)
             SettingsView()
                 .tabItem {
                     Label("Settings", systemImage: "gearshape.fill")

@@ -8,7 +8,7 @@
 import SwiftUI
 import DateHelper
 
-struct AtisView: View {
+struct InFlightView: View {
     @Environment(AtisViewModel.self) var atis
 
     var body: some View {
@@ -27,7 +27,7 @@ struct AtisView: View {
                 }
                 .padding()
                 ZStack {
-                    Color.gray.opacity(0.2)
+                    Color(UIColor.systemGray5)
                     VStack {
                         Text("Information").font(.title)
                         Spacer()
@@ -39,7 +39,7 @@ struct AtisView: View {
                 .cornerRadius(10)
                 .padding(.horizontal)
                 ZStack {
-                    Color.gray.opacity(0.2)
+                    Color(UIColor.systemGray5)
                     VStack {
                         Text("Runway").font(.title)
                         Spacer()
@@ -51,7 +51,7 @@ struct AtisView: View {
                 .cornerRadius(10)
                 .padding(.horizontal)
                 ZStack {
-                    Color.gray.opacity(0.2)
+                    Color(UIColor.systemGray5)
                     VStack {
                     Text("QNH").font(.title)
                     Spacer()
@@ -63,7 +63,7 @@ struct AtisView: View {
                 .cornerRadius(10)
                 .padding(.horizontal)
                 ZStack {
-                    Color.gray.opacity(0.2)
+                    Color(UIColor.systemGray5)
                     VStack {
                     Text("Last Metar").font(.title)
                     Spacer()
@@ -88,6 +88,6 @@ struct AtisView: View {
 }
 
 #Preview {
-    AtisView()
+    InFlightView()
         .environment(AtisViewModel())
 }
