@@ -32,7 +32,7 @@ struct RedhillAtis: Decodable {
     //    var windSpeedGust: Int
     //    var weather: String
     var clouds: [CloudCoverage?]
-    
+
     struct CloudCoverage: Decodable {
         var type: Int = 0
         var height: Int = 0

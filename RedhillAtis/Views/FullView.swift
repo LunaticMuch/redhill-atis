@@ -31,11 +31,11 @@ struct FullView: View {
     ]
 
     var body: some View {
-                
+
         NavigationStack {
             ScrollView {
                 HeaderView()
-                
+
                 // Define a fixed two-column layout
                 LazyVGrid(columns: [
                     GridItem(.flexible()), GridItem(.flexible()),

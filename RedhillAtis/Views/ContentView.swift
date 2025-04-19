@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
-    
+
     @State private var selection = 2
-    
+
     var body: some View {
-        TabView(selection:$selection) {
+        TabView(selection: $selection) {
             InFlightView()
                 .tabItem {
                     Label("In Flight", systemImage: "airplane.circle.fill")
