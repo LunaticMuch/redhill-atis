@@ -5,8 +5,8 @@
 //  Created by Stefano Cislaghi on 02/04/2025.
 //
 
-import SwiftUI
 import DateHelper
+import SwiftUI
 
 struct InFlightView: View {
     @Environment(AtisViewModel.self) var atis
@@ -14,24 +14,15 @@ struct InFlightView: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                HStack {
-                    VStack(alignment: .leading) {
-                        let updatedOnTime = Date(fromString: atis.current.updatedOn, format: .isoDateTimeFull)?
-                            .toString(format: .custom("HH:mm")) ?? ""
-                        Text("Redhill Airport")
-                            .font(.largeTitle)
-                            .fontWeight(.bold)
-                        Text("ATIS information at \(updatedOnTime)").fontWeight(.bold)
-                    }
-                    Spacer()
-                }
-                .padding()
+                HeaderView()
                 ZStack {
                     Color(UIColor.systemGray5)
                     VStack {
                         Text("Information").font(.title)
                         Spacer()
-                        Text(atis.current.designator).font(.system(size: 54, weight: .bold))
+                        Text(atis.current.designator).font(
+                            .system(size: 54, weight: .bold)
+                        )
                     }
                     .padding()
                 }
@@ -43,7 +34,9 @@ struct InFlightView: View {
                     VStack {
                         Text("Runway").font(.title)
                         Spacer()
-                        Text(atis.current.runway).font(.system(size: 54, weight: .bold))
+                        Text(atis.current.runway).font(
+                            .system(size: 54, weight: .bold)
+                        )
                     }
                     .padding()
                 }
@@ -53,11 +46,13 @@ struct InFlightView: View {
                 ZStack {
                     Color(UIColor.systemGray5)
                     VStack {
-                    Text("QNH").font(.title)
-                    Spacer()
-                    Text(String(atis.current.qnh)).font(.system(size: 54, weight: .bold))
+                        Text("QNH").font(.title)
+                        Spacer()
+                        Text(String(atis.current.qnh)).font(
+                            .system(size: 54, weight: .bold)
+                        )
                     }
-                .padding()
+                    .padding()
                 }
                 .compositingGroup()
                 .cornerRadius(10)
@@ -65,9 +60,9 @@ struct InFlightView: View {
                 ZStack {
                     Color(UIColor.systemGray5)
                     VStack {
-                    Text("Last Metar").font(.title)
-                    Spacer()
-                    Text(atis.current.metar).font(.title3)
+                        Text("Last Metar").font(.title)
+                        Spacer()
+                        Text(atis.current.metar).font(.title3)
                     }
                     .padding()
                 }
