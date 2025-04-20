@@ -28,16 +28,31 @@ struct RedhillAtis: Decodable {
     var windBetweenTo: String
     var windGust: String
     var isWindGusting: Bool
-
-    //    var windSpeedGust: Int
-    //    var weather: String
-    var clouds: [CloudCoverage?]
-
+    
+    var clouds: [CloudCoverage] = []
+    
     struct CloudCoverage: Decodable {
         var type: Int = 0
         var height: Int = 0
-        var cover: Int = 0
+        var coverage: Int = 0
+        
+        var label: String {
+
+                   let coverLabel: String
+                   switch coverage {
+                   case 3...4:
+                       coverLabel = "SCATTERED"
+                   case 5...7:
+                       coverLabel = "BROKEN"
+                   case 8:
+                       coverLabel = "OVERCAST"
+                   default:
+                       coverLabel = "UNKNOWN"
+                   }
+                   return "\(coverLabel)\n\(height)ft"
+               }
     }
+    
 
     init() {
         self.site = ""
