@@ -22,7 +22,7 @@ struct GridBoxView: View {
                     Spacer()
                 }
                 HStack {
-                    Text(val).font(.body).fontWeight(.bold)
+                    Text(val).font(.body).fontWeight(.medium)
                     Spacer()
                 }
             }

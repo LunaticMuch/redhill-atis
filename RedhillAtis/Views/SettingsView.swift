@@ -7,12 +7,19 @@
 
 import SwiftUI
 
+class Defaults: ObservableObject {
+    @AppStorage("showQfe") public var showQfe: Bool = false
+}
+
 struct SettingsView: View {
+
+    @StateObject var defaults = Defaults()
+
     var body: some View {
         NavigationStack {
             List {
                 Section {
-                    Toggle("Show QFE", isOn: .constant(false))
+                        Toggle("Show QFE", isOn: defaults.$showQfe)
                 } header: {
                     Text("Settings")
                 }
