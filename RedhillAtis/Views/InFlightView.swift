@@ -10,6 +10,7 @@ import SwiftUI
 
 struct InFlightView: View {
     @Environment(AtisViewModel.self) var atis
+    @StateObject var defaults = Defaults()
 
     var body: some View {
         NavigationStack {
@@ -46,9 +47,9 @@ struct InFlightView: View {
                 ZStack {
                     Color(UIColor.systemGray5)
                     VStack {
-                        Text("QNH").font(.title)
+                        Text(defaults.showQfe ? "QFE" : "QNH").font(.title)
                         Spacer()
-                        Text(String(atis.current.qnh)).font(
+                        Text(String(defaults.showQfe ? atis.current.qfe : atis.current.qnh)).font(
                             .system(size: 54, weight: .bold)
                         )
                     }
