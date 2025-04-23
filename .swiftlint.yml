@@ -43,3 +43,21 @@ function_body_length:
 
 type_body_length:
   warning: 250
+
+excluded:
+  - Pods
+  - Carthage
+  - .build
+  - .swiftpm
+  - .swiftlint.yml
+  - .git
+  - .DS_Store
+  - *.xcodeproj
+  - *.xcworkspace
+  - *.xcuserstate
+  - *.xcuserdata
+  - *.xcscheme
+  - *.xctest
+  - *.xctestbundle
+  - RedhillAtisUITests/SnapshotHelper.swift
+  - fastlane/SnapshotHelper.swift
