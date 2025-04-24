@@ -3,3 +3,5 @@ git_url("https://github.com/LunaticMuch/fastlane-ios-internals")
 storage_mode("git")
 
 type("development")
+
+app_identifier(["com.stefanocislaghi.redhillatis","com.stefanocislaghi.redhillatis.watchkitapp"])

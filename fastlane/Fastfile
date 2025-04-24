@@ -22,7 +22,7 @@ platform :ios do
     capture_screenshots(scheme: "RedhillAtisWatch Watch App", skip_open_summary: true, devices: ["Apple Watch SE (40mm) (2nd generation)"], languages: ["en-US"])
   end
 
-  lane :build_app do |options|
+  lane :build_app_2 do |options|
     gym(api_key: ENV["APP_STORE_CONNECT_API_KEY"], scheme: "RedhillAtis", export_method: "app-store", output_directory: "./build", output_name: "RedhillAtis.ipa", skip_build_archive: true, xcargs: "-allowProvisioningUpdates")
   end
 
