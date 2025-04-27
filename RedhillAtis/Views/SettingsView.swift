@@ -9,6 +9,7 @@ import SwiftUI
 
 class Defaults: ObservableObject {
     @AppStorage("showQfe") public var showQfe: Bool = false
+    @AppStorage("showInFlightOnLaunch") public var showInFlightOnLaunch: Bool = false
 }
 
 struct SettingsView: View {
@@ -19,9 +20,14 @@ struct SettingsView: View {
         NavigationStack {
             List {
                 Section {
+                        Toggle("Show In Flight view on launch", isOn: defaults.$showInFlightOnLaunch)
+                } header: {
+                    Text("General settings")
+                }
+                Section {
                         Toggle("Show QFE", isOn: defaults.$showQfe)
                 } header: {
-                    Text("Settings")
+                    Text("In Flight settings")
                 }
                 Section {
                     NavigationLink {
@@ -30,7 +36,7 @@ struct SettingsView: View {
                         Text("About this app")
                     }
                 } header: {
-                    Text("Settings")
+                    Text("About")
                 }
             }
         }

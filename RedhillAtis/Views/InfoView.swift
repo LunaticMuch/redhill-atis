@@ -27,7 +27,7 @@ struct InfoView: View {
                     .padding(.top, 40)
                     .font(.system(size: 20, weight: .bold))
                 VStack(spacing: 20) {
-                    Text("This application is freely based on the data provided the weather station at the airport.)")
+                    Text("This application is freely based on the data provided the weather station at the airport. In case of any doubt, please call [+44 1737 822947](tel:+441737822947) to listen the official weather service of Redhill Airport.")
                 }
                 .padding()
                 .background(RoundedRectangle(cornerRadius: 5)
