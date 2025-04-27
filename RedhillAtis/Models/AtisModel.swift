@@ -21,38 +21,40 @@ struct RedhillAtis: Decodable {
     var dewPoint: String
     var visibility: String
     // Wind
-    var isWindVariable: Bool
     var windSpeed: String
     var windDirection: String
     var windBetweenFrom: String
     var windBetweenTo: String
     var windGust: String
+    var isWindVariable: Bool
     var isWindGusting: Bool
-    
+    var isWindVarialeBetween: Bool
+
     var clouds: [CloudCoverage] = []
-    
+
     struct CloudCoverage: Decodable {
         var type: Int = 0
         var height: Int = 0
         var coverage: Int = 0
-        
+
         var label: String {
 
-                   let coverLabel: String
-                   switch coverage {
-                   case 3...4:
-                       coverLabel = "SCATTERED"
-                   case 5...7:
-                       coverLabel = "BROKEN"
-                   case 8:
-                       coverLabel = "OVERCAST"
-                   default:
-                       coverLabel = "UNKNOWN"
-                   }
-                   return "\(coverLabel)\n\(height)ft"
-               }
+            let coverLabel: String
+            switch coverage {
+            case 1...2:
+                coverLabel = "FEW"
+            case 3...4:
+                coverLabel = "SCATTERED"
+            case 5...7:
+                coverLabel = "BROKEN"
+            case 8:
+                coverLabel = "OVERCAST"
+            default:
+                coverLabel = "UNKNOWN"
+            }
+            return "\(coverLabel)\n\(height)ft"
+        }
     }
-    
 
     init() {
         self.site = ""
@@ -75,14 +77,20 @@ struct RedhillAtis: Decodable {
         self.clouds = []
         self.windGust = "000"
         self.isWindGusting = false
+        self.isWindVarialeBetween = false
     }
 
     // Computer properties
     var windDescription: String {
+        if isWindVariable {
+            return "Variable \(windSpeed)kt"
+        }
+
         return "\(windSpeed)kt from \(windDirection)"
+
     }
     var windVariabilityDescription: String {
-        if !isWindVariable {
+        if !isWindVarialeBetween {
             return ""
         }
         return "\(windBetweenFrom) to \(windBetweenTo)"
