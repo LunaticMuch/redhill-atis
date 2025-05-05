@@ -52,8 +52,7 @@ class AtisViewModel {
         guard
             let url = URL(
                 string:
-//                    "https://serverless-wrapper-redhill-minimet.vercel.app/api/v4/minimet"
-                "http://localhost:8080/met2.json"
+                    "https://serverless-wrapper-redhill-minimet.vercel.app/api/v4/minimet"
             )
         else {
             throw AtisError.invalidURL
