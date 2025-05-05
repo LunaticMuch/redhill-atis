@@ -29,7 +29,7 @@ struct RedhillAtis: Decodable {
     var isWindVariable: Bool
     var isWindGusting: Bool
     var isWindVarialeBetween: Bool
-
+    var remarks: String
     var clouds: [CloudCoverage] = []
 
     struct CloudCoverage: Decodable {
@@ -78,22 +78,23 @@ struct RedhillAtis: Decodable {
         self.windGust = "000"
         self.isWindGusting = false
         self.isWindVarialeBetween = false
+        self.remarks = ""
     }
 
-    // Computer properties
+    // Computed properties
     var windDescription: String {
         if isWindVariable {
             return "Variable \(windSpeed)kt"
         }
 
-        return "\(windSpeed)kt from \(windDirection)"
+        return "\(windSpeed)kt from \(windDirection)°"
 
     }
     var windVariabilityDescription: String {
         if !isWindVarialeBetween {
             return ""
         }
-        return "\(windBetweenFrom) to \(windBetweenTo)"
+        return "between \(windBetweenFrom)° and \(windBetweenTo)°"
     }
 
 }
@@ -119,7 +120,7 @@ extension RedhillAtis {
             "windBetweenFrom": windBetweenFrom,
             "windBetweenTo": windBetweenTo,
             "windDescription": windDescription,
-            "windVariabilityDescription": windVariabilityDescription
+            "windVariabilityDescription": windVariabilityDescription,
         ]
     }
 }

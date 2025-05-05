@@ -18,7 +18,7 @@ struct GridBoxView: View {
             VStack {
                 HStack {
                     Text(title).textCase(.uppercase)
-                        .font(.footnote).fontWeight(.medium)
+                        .font(.footnote).fontWeight(.medium).foregroundStyle(.opacity(0.9))
                     Spacer()
                 }
                 HStack {
@@ -26,11 +26,12 @@ struct GridBoxView: View {
                     Spacer()
                 }
             }
-            .padding()
+            .padding(.vertical)
+            .padding(.horizontal, )
             Spacer()
         }.background(
             RoundedRectangle(cornerRadius: 8)
-                .foregroundColor(Color(UIColor.systemGray5))
+                .foregroundStyle(Color(UIColor.systemGray6))
         )
     }
 }
