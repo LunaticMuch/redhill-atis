@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @Environment(AtisViewModel.self) var atis
+    @Environment(MetarViewModel.self) var metar
     @Environment(\.colorScheme) var colorScheme  // Detect light or dark mode
 
     @StateObject var defaults = Defaults()
@@ -30,6 +31,11 @@ struct ContentView: View {
                         Label("Weather", systemImage: "sun.rain.fill")
                     }
                     .tag(2)
+                MetarView()
+                    .tabItem {
+                        Label("METARs", systemImage: "map.circle")
+                    }
+                    .tag(3)
 
             }
             .toolbarBackground(Color(UIColor.systemGray6), for: .tabBar)
