@@ -18,17 +18,8 @@ import SwiftUI
 struct FullView: View {
     @Environment(AtisViewModel.self) var atis
 
-    // Define a list of attributes to display and their custom descriptions
-    var attributesToDisplay: [(key: String, description: String)] = [
-        ("designator", "Designator"),
-        ("runway", "Runway"),
-        ("qnh", "QNH"),
-        ("qfe", "QFE"),
-        ("temperature", "Temperature"),
-        ("dewPoint", "Dew Point"),
-        ("visibility", "Visibility"),
-        ("windDescription", "Wind")
-    ]
+    @State private var showingAlert = false
+    @State private var alertMessage: String = ""
 
     var body: some View {
 
@@ -38,35 +29,71 @@ struct FullView: View {
 
                 // Define a fixed two-column layout
                 LazyVGrid(columns: [
-                    GridItem(.flexible()), GridItem(.flexible())
+                    GridItem(.flexible()), GridItem(.flexible()),
                 ]) {
 
-                    let dic = atis.current.toDictionary()
+                    GridBoxView(
+                        title: "Designator",
+                        val: atis.current.designator
+                    )
+                    GridBoxView(
+                        title: "Runway",
+                        val: atis.current.runway
+                    )
 
-                    ForEach(attributesToDisplay, id: \.key) { attribute in
-                        if let value = dic[attribute.key] {
-                            let attr: String = attribute.description  // Use the description for the title
-                            let val: String = "\(value)"  // Convert value to string
+                    GridBoxView(
+                        title: "QNH",
+                        val: atis.current.qnh
+                    )
+                    GridBoxView(
+                        title: "QFE",
+                        val: atis.current.qfe
+                    )
 
-                            HStack {
-                                GridBoxView(title: attr, val: val)
-                            }
-                        }
-                    }
+                    GridBoxView(
+                        title: "Temperature",
+                        val: atis.current.temperature + " °C"
+                    )
+                    GridBoxView(
+                        title: "Dewpoint",
+                        val: atis.current.dewPoint + " °C"
+                    )
+
+                    GridBoxView(
+                        title: "Visibility",
+                        val: atis.current.visibility
+                    )
+                    GridBoxView(
+                        title: "Wind",
+                        val: atis.current.windDescription
+                    )
+
                     // Wind gust
                     if atis.current.isWindGusting {
-                        GridBoxView(title: "Wind Gust", val: atis.current.windGust)
+                        GridBoxView(
+                            title: "Wind Gust",
+                            val: atis.current.windGust
+                        )
                     }
                     if atis.current.isWindVarialeBetween {
-                        GridBoxView(title: "Wind Variability", val: atis.current.windVariabilityDescription)
+                        GridBoxView(
+                            title: "Wind Variability",
+                            val: atis.current.windVariabilityDescription
+                        )
                     }
 
                     // If any cloud, shows clouds too
                     if atis.current.clouds.isEmpty == false {
-                        let cl = atis.current.clouds
-                        ForEach(cl, id: \.height) {
+                        ForEach(
+                            Array(atis.current.clouds.enumerated()),
+                            id: \.offset
+                        ) {
+                            index,
                             coverage in
-                            GridBoxView(title: "Clouds", val: coverage.label)
+                            GridBoxView(
+                                title: "Clouds base \(index + 1)",
+                                val: coverage.label
+                            )
 
                         }
                     }
@@ -75,14 +102,40 @@ struct FullView: View {
                 .padding(.horizontal)
                 GridBoxView(title: "full metar", val: atis.current.metar)
                     .padding(.horizontal)
+
+                if atis.current.remarks != "" {
+                    GridBoxView(
+                        title: "Remarks",
+                        val: atis.current.remarks
+                    ).padding(.horizontal)
+                }
             }
         }
         .navigationTitle("Current ATIS")
         .task {
-            try? await atis.fetchRedhillAtis()
+            do {
+                try await atis.fetchRedhillAtis()
+            } catch {
+                // Handle the error and show an alert
+                alertMessage = error.localizedDescription
+                showingAlert = true
+            }
         }
         .refreshable {
-            try? await atis.fetchRedhillAtis()
+            do {
+                try await atis.fetchRedhillAtis()
+            } catch {
+                // Handle the error and show an alert
+                alertMessage = error.localizedDescription
+                showingAlert = true
+            }
+        }
+        .alert(isPresented: $showingAlert) {
+            Alert(
+                title: Text("Error"),
+                message: Text(alertMessage),
+                dismissButton: .default(Text("OK"))
+            )
         }
     }
 }

@@ -18,7 +18,7 @@ struct InfoView: View {
                 Text("Redhill Aerodrome ATIS")
                     .font(.system(size: 28, weight: .bold))
                 VStack(spacing: 20) {
-                    Text("Redhill Aerodrome ATIS app if a free application which ATIS and Metar information for Redhill Airport (EGKR) in Surrey, UK.")
+                    Text("Redhill Aerodrome ATIS app is a free application which ATIS and Metar information for Redhill Airport (EGKR) in Surrey, UK.")
                 }
                 .padding()
                 .background(RoundedRectangle(cornerRadius: 5)
