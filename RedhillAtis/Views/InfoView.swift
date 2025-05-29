@@ -18,35 +18,31 @@ struct InfoView: View {
                 Text("Redhill Aerodrome ATIS")
                     .font(.system(size: 28, weight: .bold))
                 VStack(spacing: 20) {
-                    Text("Redhill Aerodrome ATIS app is a free application which ATIS and Metar information for Redhill Airport (EGKR) in Surrey, UK.")
+                    Text(
+                        "Redhill Aerodrome ATIS app is a free application which ATIS and Metar information for Redhill Airport (EGKR) in Surrey, UK."
+                    )
                 }
                 .padding()
-                .background(RoundedRectangle(cornerRadius: 5)
-                    .foregroundColor(Color(UIColor.systemGray6)))
+                .background(
+                    RoundedRectangle(cornerRadius: 5)
+                        .foregroundColor(Color(UIColor.systemGray6))
+                )
                 Text("Disclaimer")
                     .padding(.top, 40)
                     .font(.system(size: 20, weight: .bold))
                 VStack(spacing: 20) {
-                    Text("This application is freely based on the data provided the weather station at the airport. In case of any doubt, please call [+44 1737 822947](tel:+441737822947) to listen the official weather service of Redhill Airport.")
-                }
-                .padding()
-                .background(RoundedRectangle(cornerRadius: 5)
-                    .foregroundColor(Color(UIColor.systemGray6)))
+                    Text(
+                        "This application is freely based on the data provided the weather station at the airport. In case of any doubt, please call [+44 1737 822947](tel:+441737822947) to listen the official weather service of Redhill Airport."
+                    )
+                    Text(
+                        "If you like project, please consider [buying me a beer](https://buymeacoffee.com/stefanocislaghi)."
+                    )
+                }.padding().background(
+                    RoundedRectangle(cornerRadius: 5)
+                        .foregroundColor(Color(UIColor.systemGray6))
+                )
                 Spacer()
                 Divider()
-                HStack {
-                    Link(destination: instagramURL) {
-                        Image("instagram")
-                            .foregroundColor(Color(UIColor.systemGray))
-                            .padding()
-                    }
-                    Link(destination: githubURL) {
-                        Image("github")
-                            .foregroundColor(Color(UIColor.systemGray))
-                            .padding()
-                    }
-                }
-                .padding(.bottom, 30)
             }.padding()
         }
     }
