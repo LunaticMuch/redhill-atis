@@ -34,15 +34,27 @@ struct InfoView: View {
                     Text(
                         "This application is freely based on the data provided the weather station at the airport. In case of any doubt, please call [+44 1737 822947](tel:+441737822947) to listen the official weather service of Redhill Airport."
                     )
-                    Text(
-                        "If you like project, please consider [buying me a beer](https://buymeacoffee.com/stefanocislaghi)."
-                    )
                 }.padding().background(
                     RoundedRectangle(cornerRadius: 5)
                         .foregroundColor(Color(UIColor.systemGray6))
                 )
                 Spacer()
                 Divider()
+                Button(action: {
+                    guard let buymeacoffee = URL(string: "https://buymeacoffee.com/stefanocislaghi"),
+                        UIApplication.shared.canOpenURL(buymeacoffee) else {
+                        return
+                    }
+                    UIApplication.shared.open(buymeacoffee,
+                                              options: [:],
+                                              completionHandler: nil)
+                }) {
+                    Image(.buymeabeer)
+                       .resizable()
+                       .frame(width: 250.0,
+                              height: 233.0)
+                       .buttonStyle(PlainButtonStyle())
+                   }
             }.padding()
         }
     }
