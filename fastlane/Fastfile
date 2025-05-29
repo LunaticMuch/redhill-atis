@@ -1,0 +1,45 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+platform :ios do
+  desc "Generate new localized screenshots"
+  lane :screenshots do
+    capture_screenshots(scheme: "RedhillAtis", skip_open_summary: true)
+    capture_screenshots(scheme: "RedhillAtisWatch Watch App", skip_open_summary: true, devices: ["Apple Watch SE (40mm) (2nd generation)"], languages: ["en-US"])
+  end
+
+  lane :build_app_2 do |options|
+    gym(api_key: ENV["APP_STORE_CONNECT_API_KEY"], scheme: "RedhillAtis", export_method: "app-store", output_directory: "./build", output_name: "RedhillAtis.ipa", skip_build_archive: true, xcargs: "-allowProvisioningUpdates")
+  end
+
+  lane :beta do
+    sync_code_signing(type: "appstore")
+    increment_build_number
+    commit_version_bump(message: "[CI] fastlane version bump")
+    build_app(scheme: "RedhillAtis")
+    upload_to_testflight(changelog: "New UI changes")
+  end
+
+
+  lane :release do
+    sync_code_signing(type: "appstore")
+    increment_build_number
+    commit_version_bump(message: "[CI] fastlane version bump")
+    build_app(scheme: "RedhillAtis")
+    upload_to_app_store
+  end
+end

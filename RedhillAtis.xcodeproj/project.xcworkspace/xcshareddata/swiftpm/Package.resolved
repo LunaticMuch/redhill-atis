@@ -1,0 +1,24 @@
+{
+  "originHash" : "65399a788c95ba6a2c1aa82acda0cf498f319d1e3eb3d38a4e751ac060c06348",
+  "pins" : [
+    {
+      "identity" : "datehelper",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/melvitax/DateHelper.git",
+      "state" : {
+        "revision" : "76d0840daab7288fc99b04a4c23d504f0394e083",
+        "version" : "5.0.1"
+      }
+    },
+    {
+      "identity" : "swiftlintplugins",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SimplyDanny/SwiftLintPlugins",
+      "state" : {
+        "revision" : "7a3d77f3dd9f91d5cea138e52c20cfceabf352de",
+        "version" : "0.58.2"
+      }
+    }
+  ],
+  "version" : 3
+}
