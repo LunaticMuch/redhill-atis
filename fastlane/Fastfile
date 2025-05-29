@@ -37,9 +37,11 @@ platform :ios do
 
   lane :release do
     sync_code_signing(type: "appstore")
-    increment_build_number
-    commit_version_bump(message: "[CI] fastlane version bump")
     build_app(scheme: "RedhillAtis")
-    upload_to_app_store
+    upload_to_app_store(skip_screenshots: true,
+      automatic_release:true, 
+      skip_binary_upload: false,
+      submit_for_review: true,
+      release_notes: "Bug fixes and improvements")
   end
 end
