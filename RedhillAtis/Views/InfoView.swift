@@ -54,7 +54,7 @@ struct InfoView: View {
                        .frame(width: 250.0,
                               height: 233.0)
                        .buttonStyle(PlainButtonStyle())
-                   }
+                }
             }.padding()
         }
     }
