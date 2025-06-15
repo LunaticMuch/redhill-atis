@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import DateHelper
 
 struct CloudCoverage: Decodable, Identifiable {
 
@@ -100,6 +101,14 @@ struct RedhillAtis: Decodable {
             return ""
         }
         return "\(windBetweenFrom)° <> \(windBetweenTo)°"
+    }
+    
+    var updatedOnTime: String {
+        return Date(
+            fromString: updatedOn,
+            format: .isoDateTimeFull
+        )?
+        .toString(format: .custom("HH:mm")) ?? ""
     }
 
 }
