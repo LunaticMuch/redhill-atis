@@ -10,6 +10,10 @@
 		7B192F2F2D9DCCED00AA96B1 /* RedhillAtisWatch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 7B192F0C2D9DCCEC00AA96B1 /* RedhillAtisWatch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		7B55D9632D9DD6980024B2AB /* DateHelper in Frameworks */ = {isa = PBXBuildFile; productRef = 7B55D9622D9DD6980024B2AB /* DateHelper */; };
 		7B55D9702D9DD8020024B2AB /* DateHelper in Frameworks */ = {isa = PBXBuildFile; productRef = 7B55D96F2D9DD8020024B2AB /* DateHelper */; };
+		7BAEC4042DFF0800000123C4 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BAEC4032DFF0800000123C4 /* WidgetKit.framework */; };
+		7BAEC4062DFF0800000123C4 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BAEC4052DFF0800000123C4 /* SwiftUI.framework */; };
+		7BAEC4172DFF0802000123C4 /* RedhillAtis Widget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 7BAEC4022DFF0800000123C4 /* RedhillAtis Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		7BAEC4212DFF3D07000123C4 /* DateHelper in Frameworks */ = {isa = PBXBuildFile; productRef = 7BAEC4202DFF3D07000123C4 /* DateHelper */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +52,13 @@
 			remoteGlobalIDString = 7B192F0B2D9DCCEC00AA96B1;
 			remoteInfo = "RedhillAtisWatch Watch App";
 		};
+		7BAEC4152DFF0802000123C4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7B192ED32D9DCC9E00AA96B1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7BAEC4012DFF0800000123C4;
+			remoteInfo = widgetkitappExtension;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -62,6 +73,17 @@
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7BAEC4182DFF0802000123C4 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				7BAEC4172DFF0802000123C4 /* RedhillAtis Widget.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +93,9 @@
 		7B192F0C2D9DCCEC00AA96B1 /* RedhillAtisWatch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RedhillAtisWatch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B192F1B2D9DCCED00AA96B1 /* RedhillAtisWatch Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RedhillAtisWatch Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B192F252D9DCCED00AA96B1 /* RedhillAtisWatch Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RedhillAtisWatch Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7BAEC4022DFF0800000123C4 /* RedhillAtis Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "RedhillAtis Widget.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7BAEC4032DFF0800000123C4 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		7BAEC4052DFF0800000123C4 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -98,6 +123,21 @@
 			);
 			target = 7B192EDA2D9DCC9E00AA96B1 /* RedhillAtis */;
 		};
+		7BAEC41C2DFF0802000123C4 /* Exceptions for "RedhillAtis Widget" folder in "RedhillAtis Widget" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 7BAEC4012DFF0800000123C4 /* RedhillAtis Widget */;
+		};
+		7BAEC41E2DFF0B64000123C4 /* Exceptions for "RedhillAtis" folder in "RedhillAtis Widget" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Models/AtisModel.swift,
+				ViewModels/AtisViewModel.swift,
+			);
+			target = 7BAEC4012DFF0800000123C4 /* RedhillAtis Widget */;
+		};
 		7BD9F9422DA16D91000797F9 /* Exceptions for "RedhillAtisUITests" folder in "RedhillAtisWatch Watch AppUITests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -113,6 +153,7 @@
 			exceptions = (
 				7B61E9EE2D9E5F5B00ED43FA /* Exceptions for "RedhillAtis" folder in "RedhillAtis" target */,
 				7B55D9652D9DD7060024B2AB /* Exceptions for "RedhillAtis" folder in "RedhillAtisWatch Watch App" target */,
+				7BAEC41E2DFF0B64000123C4 /* Exceptions for "RedhillAtis" folder in "RedhillAtis Widget" target */,
 			);
 			path = RedhillAtis;
 			sourceTree = "<group>";
@@ -143,6 +184,14 @@
 		7B192F282D9DCCED00AA96B1 /* RedhillAtisWatchAppUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = RedhillAtisWatchAppUITests;
+			sourceTree = "<group>";
+		};
+		7BAEC4072DFF0800000123C4 /* RedhillAtis Widget */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				7BAEC41C2DFF0802000123C4 /* Exceptions for "RedhillAtis Widget" folder in "RedhillAtis Widget" target */,
+			);
+			path = "RedhillAtis Widget";
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -192,6 +241,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7BAEC3FF2DFF0800000123C4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7BAEC4212DFF3D07000123C4 /* DateHelper in Frameworks */,
+				7BAEC4062DFF0800000123C4 /* SwiftUI.framework in Frameworks */,
+				7BAEC4042DFF0800000123C4 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -204,6 +263,7 @@
 				7B192F0D2D9DCCEC00AA96B1 /* RedhillAtisWatchApp */,
 				7B192F1E2D9DCCED00AA96B1 /* RedhillAtisWatchAppTests */,
 				7B192F282D9DCCED00AA96B1 /* RedhillAtisWatchAppUITests */,
+				7BAEC4072DFF0800000123C4 /* RedhillAtis Widget */,
 				7B55D9612D9DD6980024B2AB /* Frameworks */,
 				7B192EDC2D9DCC9E00AA96B1 /* Products */,
 			);
@@ -218,6 +278,7 @@
 				7B192F0C2D9DCCEC00AA96B1 /* RedhillAtisWatch Watch App.app */,
 				7B192F1B2D9DCCED00AA96B1 /* RedhillAtisWatch Watch AppTests.xctest */,
 				7B192F252D9DCCED00AA96B1 /* RedhillAtisWatch Watch AppUITests.xctest */,
+				7BAEC4022DFF0800000123C4 /* RedhillAtis Widget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -225,6 +286,8 @@
 		7B55D9612D9DD6980024B2AB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7BAEC4032DFF0800000123C4 /* WidgetKit.framework */,
+				7BAEC4052DFF0800000123C4 /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -240,11 +303,13 @@
 				7B192ED82D9DCC9E00AA96B1 /* Frameworks */,
 				7B192ED92D9DCC9E00AA96B1 /* Resources */,
 				7B192F332D9DCCED00AA96B1 /* Embed Watch Content */,
+				7BAEC4182DFF0802000123C4 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				7B192F2E2D9DCCED00AA96B1 /* PBXTargetDependency */,
+				7BAEC4162DFF0802000123C4 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				7B192EDD2D9DCC9E00AA96B1 /* RedhillAtis */,
@@ -372,6 +437,29 @@
 			productReference = 7B192F252D9DCCED00AA96B1 /* RedhillAtisWatch Watch AppUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		7BAEC4012DFF0800000123C4 /* RedhillAtis Widget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7BAEC41B2DFF0802000123C4 /* Build configuration list for PBXNativeTarget "RedhillAtis Widget" */;
+			buildPhases = (
+				7BAEC3FE2DFF0800000123C4 /* Sources */,
+				7BAEC3FF2DFF0800000123C4 /* Frameworks */,
+				7BAEC4002DFF0800000123C4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				7BAEC4072DFF0800000123C4 /* RedhillAtis Widget */,
+			);
+			name = "RedhillAtis Widget";
+			packageProductDependencies = (
+				7BAEC4202DFF3D07000123C4 /* DateHelper */,
+			);
+			productName = widgetkitappExtension;
+			productReference = 7BAEC4022DFF0800000123C4 /* RedhillAtis Widget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -379,7 +467,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1620;
+				LastSwiftUpdateCheck = 1630;
 				LastUpgradeCheck = 1630;
 				TargetAttributes = {
 					7B192EDA2D9DCC9E00AA96B1 = {
@@ -403,6 +491,9 @@
 					7B192F242D9DCCED00AA96B1 = {
 						CreatedOnToolsVersion = 16.2;
 						TestTargetID = 7B192F0B2D9DCCEC00AA96B1;
+					};
+					7BAEC4012DFF0800000123C4 = {
+						CreatedOnToolsVersion = 16.3;
 					};
 				};
 			};
@@ -430,6 +521,7 @@
 				7B192F0B2D9DCCEC00AA96B1 /* RedhillAtisWatch Watch App */,
 				7B192F1A2D9DCCED00AA96B1 /* RedhillAtisWatch Watch AppTests */,
 				7B192F242D9DCCED00AA96B1 /* RedhillAtisWatch Watch AppUITests */,
+				7BAEC4012DFF0800000123C4 /* RedhillAtis Widget */,
 			);
 		};
 /* End PBXProject section */
@@ -471,6 +563,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		7B192F232D9DCCED00AA96B1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7BAEC4002DFF0800000123C4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -522,6 +621,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7BAEC3FE2DFF0800000123C4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -549,6 +655,11 @@
 			isa = PBXTargetDependency;
 			target = 7B192F0B2D9DCCEC00AA96B1 /* RedhillAtisWatch Watch App */;
 			targetProxy = 7B192F2D2D9DCCED00AA96B1 /* PBXContainerItemProxy */;
+		};
+		7BAEC4162DFF0802000123C4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7BAEC4012DFF0800000123C4 /* RedhillAtis Widget */;
+			targetProxy = 7BAEC4152DFF0802000123C4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -972,6 +1083,62 @@
 			};
 			name = Release;
 		};
+		7BAEC4192DFF0802000123C4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 14;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "RedhillAtis Widget/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "RedhillAtis Widget";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.5;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stefanocislaghi.redhillatis.widgetkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7BAEC41A2DFF0802000123C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 14;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "RedhillAtis Widget/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "RedhillAtis Widget";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.5;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stefanocislaghi.redhillatis.widgetkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1038,6 +1205,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		7BAEC41B2DFF0802000123C4 /* Build configuration list for PBXNativeTarget "RedhillAtis Widget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7BAEC4192DFF0802000123C4 /* Debug */,
+				7BAEC41A2DFF0802000123C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
@@ -1066,6 +1242,11 @@
 			productName = DateHelper;
 		};
 		7B55D96F2D9DD8020024B2AB /* DateHelper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7B55D95C2D9DD53D0024B2AB /* XCRemoteSwiftPackageReference "DateHelper" */;
+			productName = DateHelper;
+		};
+		7BAEC4202DFF3D07000123C4 /* DateHelper */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7B55D95C2D9DD53D0024B2AB /* XCRemoteSwiftPackageReference "DateHelper" */;
 			productName = DateHelper;
