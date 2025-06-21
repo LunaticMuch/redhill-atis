@@ -62,7 +62,7 @@ struct QuickWidget: Widget {
                 .containerBackground(.fill.tertiary, for: .widget)
         }
         .configurationDisplayName("Quick View")
-        .description("Simplified viewed of ATIS information")
+        .description("Simplified view of ATIS information")
         .supportedFamilies([.systemSmall])
     }
 }
