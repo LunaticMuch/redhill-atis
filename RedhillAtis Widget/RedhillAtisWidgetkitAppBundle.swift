@@ -9,8 +9,10 @@ import WidgetKit
 import SwiftUI
 
 @main
-struct RedhillAtisWidgetkitAppBundle: WidgetBundle {
+struct RedhillAtisWidgetBundle: WidgetBundle {
     var body: some Widget {
-        RedhillAtisWidgetkitApp()
+        QuickWidget()
+        LandingWidget()
+        MetarWidget()
     }
 }

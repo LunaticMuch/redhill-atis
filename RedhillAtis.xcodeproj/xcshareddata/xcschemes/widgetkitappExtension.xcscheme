@@ -58,9 +58,15 @@
       allowLocationSimulation = "YES"
       launchAutomaticallySubstyle = "2">
       <RemoteRunnable
-         runnableDebuggingMode = "1"
-         BundleIdentifier = "com.stefanocislaghi.redhillatis"
-         RemotePath = "/Users/stefano/Library/Developer/CoreSimulator/Devices/A2D63FCA-1871-4C12-A1EF-F2AAEDACC964/data/Containers/Bundle/Application/15031705-9C8B-477D-9DE4-80940D7DFB86/RedhillAtis.app">
+         runnableDebuggingMode = "2"
+         BundleIdentifier = "com.apple.springboard">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "7BAEC4012DFF0800000123C4"
+            BuildableName = "RedhillAtis Widget.appex"
+            BlueprintName = "RedhillAtis Widget"
+            ReferencedContainer = "container:RedhillAtis.xcodeproj">
+         </BuildableReference>
       </RemoteRunnable>
       <MacroExpansion>
          <BuildableReference
