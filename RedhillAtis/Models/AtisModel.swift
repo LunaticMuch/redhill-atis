@@ -64,12 +64,12 @@ struct RedhillAtis: Decodable {
 
     init() {
         self.site = ""
-        self.metar = ""
-        self.designator = "-"
-        self.runway = "00-"
+        self.metar = "EGKR 211022Z 17008KT FEW2000 SCT4000 BKN5000 9999 10/23 Q1013"
+        self.designator = "A"
+        self.runway = "01L"
         self.updatedOn = "2025-01-01T00:00:00.000+00:00"
         self.qfe = "0000"
-        self.qnh = "0000"
+        self.qnh = "1919"
         self.temperature = "00"
         self.dewPoint = "00"
         self.visibility = "9999"
@@ -102,7 +102,7 @@ struct RedhillAtis: Decodable {
         }
         return "\(windBetweenFrom)° <> \(windBetweenTo)°"
     }
-    
+
     var updatedOnTime: String {
         return Date(
             fromString: updatedOn,
