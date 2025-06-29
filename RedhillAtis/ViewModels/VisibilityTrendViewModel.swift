@@ -54,7 +54,7 @@ class VisibilityObservationViewModel {
                     "https://serverless-wrapper-redhill-minimet.vercel.app/api/v5/visibility"
             )
         else {
-            throw MetarError.invalidURL
+            throw VisibilityTrendError.invalidURL
         }
 
         do {
