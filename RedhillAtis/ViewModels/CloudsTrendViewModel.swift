@@ -54,7 +54,7 @@ class CloudObservationViewModel {
                     "https://serverless-wrapper-redhill-minimet.vercel.app/api/v5/clouds"
             )
         else {
-            throw MetarError.invalidURL
+            throw CloudsTrendError.invalidURL
         }
 
         do {
