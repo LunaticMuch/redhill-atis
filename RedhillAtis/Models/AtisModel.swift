@@ -6,6 +6,36 @@
 //
 
 import Foundation
+import DateHelper
+
+struct CloudCoverage: Decodable, Identifiable {
+
+    var type: Int = 0
+    var height: Int = 0
+    var coverage: Int = 0
+
+    var label: String {
+        let coverLabel: String
+        switch coverage {
+        case 1...2:
+            coverLabel = "FEW"
+        case 3...4:
+            coverLabel = "SCATTERED"
+        case 5...7:
+            coverLabel = "BROKEN"
+        case 8:
+            coverLabel = "OVERCAST"
+        default:
+            coverLabel = "UNKNOWN"
+        }
+        return "\(coverLabel)"
+    }
+
+    var id: UUID {
+        UUID()
+    }
+
+}
 
 struct RedhillAtis: Decodable {
     var site: String
@@ -32,38 +62,14 @@ struct RedhillAtis: Decodable {
     var remarks: String
     var clouds: [CloudCoverage] = []
 
-    struct CloudCoverage: Decodable {
-        var type: Int = 0
-        var height: Int = 0
-        var coverage: Int = 0
-
-        var label: String {
-
-            let coverLabel: String
-            switch coverage {
-            case 1...2:
-                coverLabel = "FEW"
-            case 3...4:
-                coverLabel = "SCATTERED"
-            case 5...7:
-                coverLabel = "BROKEN"
-            case 8:
-                coverLabel = "OVERCAST"
-            default:
-                coverLabel = "UNKNOWN"
-            }
-            return "\(coverLabel)\n\(height)ft"
-        }
-    }
-
     init() {
         self.site = ""
-        self.metar = ""
-        self.designator = "-"
-        self.runway = "00-"
+        self.metar = "EGKR 211022Z 17008KT FEW2000 SCT4000 BKN5000 9999 10/23 Q1013"
+        self.designator = "A"
+        self.runway = "01L"
         self.updatedOn = "2025-01-01T00:00:00.000+00:00"
         self.qfe = "0000"
-        self.qnh = "0000"
+        self.qnh = "1919"
         self.temperature = "00"
         self.dewPoint = "00"
         self.visibility = "9999"
@@ -94,7 +100,15 @@ struct RedhillAtis: Decodable {
         if !isWindVarialeBetween {
             return ""
         }
-        return "between \(windBetweenFrom)° and \(windBetweenTo)°"
+        return "\(windBetweenFrom)° <> \(windBetweenTo)°"
+    }
+
+    var updatedOnTime: String {
+        return Date(
+            fromString: updatedOn,
+            format: .isoDateTimeFull
+        )?
+        .toString(format: .custom("HH:mm")) ?? ""
     }
 
 }

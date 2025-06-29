@@ -4,4 +4,4 @@ storage_mode("git")
 
 type("development")
 
-app_identifier(["com.stefanocislaghi.redhillatis","com.stefanocislaghi.redhillatis.watchkitapp"])
+app_identifier(["com.stefanocislaghi.redhillatis","com.stefanocislaghi.redhillatis.watchkitapp","com.stefanocislaghi.redhillatis.widgetkitapp"])

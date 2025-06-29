@@ -22,7 +22,6 @@ struct FullView: View {
     @State private var alertMessage: String = ""
 
     var body: some View {
-
         NavigationStack {
             ScrollView {
                 HeaderView()
@@ -54,52 +53,31 @@ struct FullView: View {
                         title: "Temperature",
                         val: atis.current.temperature + " °C"
                     )
+
                     GridBoxView(
                         title: "Dewpoint",
                         val: atis.current.dewPoint + " °C"
                     )
 
-                    GridBoxView(
-                        title: "Visibility",
-                        val: atis.current.visibility
-                    )
+                    NavigationLink(destination: VisibilityChartView()) {
+                        GridBoxView(
+                            title: "Visibility",
+                            val: atis.current.visibility,
+                            isNavigationLink: true
+                        )
+                    }.buttonStyle(.plain)
                     GridBoxView(
                         title: "Wind",
                         val: atis.current.windDescription
                     )
 
-                    // Wind gust
-                    if atis.current.isWindGusting {
-                        GridBoxView(
-                            title: "Wind Gust",
-                            val: atis.current.windGust
-                        )
-                    }
-                    if atis.current.isWindVarialeBetween {
-                        GridBoxView(
-                            title: "Wind Variability",
-                            val: atis.current.windVariabilityDescription
-                        )
-                    }
-
-                    // If any cloud, shows clouds too
-                    if atis.current.clouds.isEmpty == false {
-                        ForEach(
-                            Array(atis.current.clouds.enumerated()),
-                            id: \.offset
-                        ) {
-                            index,
-                            coverage in
-                            GridBoxView(
-                                title: "Clouds base \(index + 1)",
-                                val: coverage.label
-                            )
-
-                        }
-                    }
-
                 }
                 .padding(.horizontal)
+                // If any cloud, shows clouds too
+                NavigationLink(destination: CloudsChartView()) {
+                    GridBoxCloudView(clouds: atis.current.clouds)
+                }.buttonStyle(.plain)
+
                 GridBoxView(title: "full metar", val: atis.current.metar)
                     .padding(.horizontal)
 
@@ -143,4 +121,6 @@ struct FullView: View {
 #Preview {
     FullView()
         .environment(AtisViewModel())
+        .environment(CloudObservationViewModel())
+        .environment(VisibilityObservationViewModel())
 }
