@@ -20,7 +20,7 @@ struct GridBoxView: View {
                 if isNavigationLink == true {
                     HStack {
                         Label {
-                            Text("Clouds")
+                            Text(title)
                                 .textCase(.uppercase)
                                 .font(.footnote).fontWeight(.medium)
                                 .foregroundStyle(
